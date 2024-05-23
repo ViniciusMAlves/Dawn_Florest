@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxt7d55kdnmis"]
+
+[ext_resource type="Texture2D" uid="uid://t5oftf2rro01" path="res://assets/tile/parallax_background/layer_1.png" id="1_prpol"]
+[ext_resource type="Script" path="res://scripts/env/background.gd" id="1_wvptw"]
+[ext_resource type="Texture2D" uid="uid://bh66uclsfxpkx" path="res://assets/tile/parallax_background/layer_2.png" id="2_e2apu"]
+[ext_resource type="Texture2D" uid="uid://dxiq6dqa1xgfg" path="res://assets/tile/parallax_background/layer_3.png" id="3_h5qws"]
+[ext_resource type="Texture2D" uid="uid://cxy6bgvbapk0x" path="res://assets/tile/parallax_background/layer_4.png" id="4_julf0"]
+[ext_resource type="PackedScene" uid="uid://cjfj5d2aqg17a" path="res://scenes/env/mask.tscn" id="6_x3ju7"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_wvptw")
+can_process = true
+layer_speed = Array[int]([20, 15, 10, 5])
+
+[node name="Layer4" type="ParallaxLayer" parent="."]
+position = Vector2(0, -1)
+motion_mirroring = Vector2(320, 180)
+
+[node name="Texture" type="TextureRect" parent="Layer4"]
+texture_filter = 1
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 321.0
+offset_bottom = 182.0
+texture = ExtResource("4_julf0")
+
+[node name="Layer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Texture" type="TextureRect" parent="Layer1"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_prpol")
+
+[node name="Layer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Texture" type="TextureRect" parent="Layer2"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_e2apu")
+
+[node name="Layer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Texture" type="TextureRect" parent="Layer3"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_h5qws")
+
+[node name="Mask" parent="." instance=ExtResource("6_x3ju7")]
